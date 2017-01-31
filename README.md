@@ -1,2 +1,2 @@
 ## BabylonPosts
-Technical test for BabylonHeath interview
+Swift app to display posts
