@@ -7,23 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		016CFB3A1E40E4AD0074D109 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 016CFB391E40E4AD0074D109 /* GoogleService-Info.plist */; };
 		019EF7361E33925F00409137 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019EF7351E33925F00409137 /* AppDelegate.swift */; };
 		019EF7381E33925F00409137 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019EF7371E33925F00409137 /* ViewController.swift */; };
 		019EF73B1E33925F00409137 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 019EF7391E33925F00409137 /* Main.storyboard */; };
-		019EF73E1E33925F00409137 /* BabylonPosts.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 019EF73C1E33925F00409137 /* BabylonPosts.xcdatamodeld */; };
 		019EF7401E33925F00409137 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 019EF73F1E33925F00409137 /* Assets.xcassets */; };
 		019EF7431E33925F00409137 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 019EF7411E33925F00409137 /* LaunchScreen.storyboard */; };
+		6C4CB9A3193CC010CE783B78 /* Pods_BabylonPosts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05D664610F29B492CE08C4A0 /* Pods_BabylonPosts.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		016CFB391E40E4AD0074D109 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		019EF7321E33925F00409137 /* BabylonPosts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BabylonPosts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		019EF7351E33925F00409137 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		019EF7371E33925F00409137 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		019EF73A1E33925F00409137 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		019EF73D1E33925F00409137 /* BabylonPosts.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BabylonPosts.xcdatamodel; sourceTree = "<group>"; };
 		019EF73F1E33925F00409137 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		019EF7421E33925F00409137 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		019EF7441E33925F00409137 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		05D664610F29B492CE08C4A0 /* Pods_BabylonPosts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BabylonPosts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9EFBDFAB4CF1B8D8DE8226F /* Pods-BabylonPosts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BabylonPosts.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BabylonPosts/Pods-BabylonPosts.debug.xcconfig"; sourceTree = "<group>"; };
+		F763D0A23D93BA9F3F2C909A /* Pods-BabylonPosts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BabylonPosts.release.xcconfig"; path = "Pods/Target Support Files/Pods-BabylonPosts/Pods-BabylonPosts.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +35,52 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C4CB9A3193CC010CE783B78 /* Pods_BabylonPosts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		016CFB371E40E49E0074D109 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				019EF7351E33925F00409137 /* AppDelegate.swift */,
+				019EF7371E33925F00409137 /* ViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		016CFB381E40E4A30074D109 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				019EF7441E33925F00409137 /* Info.plist */,
+				016CFB391E40E4AD0074D109 /* GoogleService-Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		016CFB3B1E40E5160074D109 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		016CFB3C1E40E51B0074D109 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		019EF7291E33925F00409137 = {
 			isa = PBXGroup;
 			children = (
 				019EF7341E33925F00409137 /* BabylonPosts */,
 				019EF7331E33925F00409137 /* Products */,
+				DE2DBC15AC42E9EB36B66CF5 /* Pods */,
+				4809E7EA9B1F3723DDEA9F27 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +95,32 @@
 		019EF7341E33925F00409137 /* BabylonPosts */ = {
 			isa = PBXGroup;
 			children = (
-				019EF7351E33925F00409137 /* AppDelegate.swift */,
-				019EF7371E33925F00409137 /* ViewController.swift */,
+				016CFB3C1E40E51B0074D109 /* View */,
+				016CFB3B1E40E5160074D109 /* Model */,
+				016CFB381E40E4A30074D109 /* Resources */,
+				016CFB371E40E49E0074D109 /* Controller */,
 				019EF7391E33925F00409137 /* Main.storyboard */,
 				019EF73F1E33925F00409137 /* Assets.xcassets */,
 				019EF7411E33925F00409137 /* LaunchScreen.storyboard */,
-				019EF7441E33925F00409137 /* Info.plist */,
-				019EF73C1E33925F00409137 /* BabylonPosts.xcdatamodeld */,
 			);
 			path = BabylonPosts;
+			sourceTree = "<group>";
+		};
+		4809E7EA9B1F3723DDEA9F27 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				05D664610F29B492CE08C4A0 /* Pods_BabylonPosts.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DE2DBC15AC42E9EB36B66CF5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D9EFBDFAB4CF1B8D8DE8226F /* Pods-BabylonPosts.debug.xcconfig */,
+				F763D0A23D93BA9F3F2C909A /* Pods-BabylonPosts.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +130,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 019EF7471E33925F00409137 /* Build configuration list for PBXNativeTarget "BabylonPosts" */;
 			buildPhases = (
+				D0FB7961009EAED371104C44 /* [CP] Check Pods Manifest.lock */,
 				019EF72E1E33925F00409137 /* Sources */,
 				019EF72F1E33925F00409137 /* Frameworks */,
 				019EF7301E33925F00409137 /* Resources */,
+				8DA4B2E564062A43032D3270 /* [CP] Embed Pods Frameworks */,
+				E77D2F771F06F82DBFE5C821 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -128,6 +187,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				019EF7431E33925F00409137 /* LaunchScreen.storyboard in Resources */,
+				016CFB3A1E40E4AD0074D109 /* GoogleService-Info.plist in Resources */,
 				019EF7401E33925F00409137 /* Assets.xcassets in Resources */,
 				019EF73B1E33925F00409137 /* Main.storyboard in Resources */,
 			);
@@ -135,12 +195,59 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		8DA4B2E564062A43032D3270 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BabylonPosts/Pods-BabylonPosts-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D0FB7961009EAED371104C44 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E77D2F771F06F82DBFE5C821 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BabylonPosts/Pods-BabylonPosts-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		019EF72E1E33925F00409137 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				019EF73E1E33925F00409137 /* BabylonPosts.xcdatamodeld in Sources */,
 				019EF7381E33925F00409137 /* ViewController.swift in Sources */,
 				019EF7361E33925F00409137 /* AppDelegate.swift in Sources */,
 			);
@@ -261,6 +368,7 @@
 		};
 		019EF7481E33925F00409137 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D9EFBDFAB4CF1B8D8DE8226F /* Pods-BabylonPosts.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 4R644JN289;
@@ -274,6 +382,7 @@
 		};
 		019EF7491E33925F00409137 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F763D0A23D93BA9F3F2C909A /* Pods-BabylonPosts.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 4R644JN289;
@@ -304,21 +413,9 @@
 				019EF7491E33925F00409137 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		019EF73C1E33925F00409137 /* BabylonPosts.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				019EF73D1E33925F00409137 /* BabylonPosts.xcdatamodel */,
-			);
-			currentVersion = 019EF73D1E33925F00409137 /* BabylonPosts.xcdatamodel */;
-			path = BabylonPosts.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 019EF72A1E33925F00409137 /* Project object */;
 }
