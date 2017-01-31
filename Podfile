@@ -7,5 +7,6 @@ target 'BabylonPosts' do
 
   # Pods for BabylonPosts
   pod 'Firebase/Core'
-  
+  pod 'Firebase/Database'
+
 end
