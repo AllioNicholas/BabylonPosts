@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		01511F1E1E40F309002BF760 /* ContentParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01511F1D1E40F309002BF760 /* ContentParser.swift */; };
+		01511F201E43978A002BF760 /* PostsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01511F1F1E43978A002BF760 /* PostsTableViewController.swift */; };
 		016CFB431E40E7720074D109 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 016CFB411E40E7720074D109 /* GoogleService-Info.plist */; };
-		016CFB461E40E7810074D109 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016CFB451E40E7810074D109 /* ViewController.swift */; };
 		016CFB481E40E7990074D109 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016CFB471E40E7990074D109 /* AppDelegate.swift */; };
 		016CFB4E1E40EF190074D109 /* ContentDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016CFB4D1E40EF190074D109 /* ContentDispatcher.swift */; };
 		016CFB501E40EF260074D109 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016CFB4F1E40EF260074D109 /* Post.swift */; };
@@ -23,8 +23,8 @@
 
 /* Begin PBXFileReference section */
 		01511F1D1E40F309002BF760 /* ContentParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContentParser.swift; path = Model/ContentParser.swift; sourceTree = "<group>"; };
+		01511F1F1E43978A002BF760 /* PostsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostsTableViewController.swift; path = Controller/PostsTableViewController.swift; sourceTree = "<group>"; };
 		016CFB411E40E7720074D109 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Resources/GoogleService-Info.plist"; sourceTree = "<group>"; };
-		016CFB451E40E7810074D109 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = Controller/ViewController.swift; sourceTree = "<group>"; };
 		016CFB471E40E7990074D109 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Controller/AppDelegate.swift; sourceTree = "<group>"; };
 		016CFB491E40ED450074D109 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		016CFB4D1E40EF190074D109 /* ContentDispatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContentDispatcher.swift; path = Model/ContentDispatcher.swift; sourceTree = "<group>"; };
@@ -56,7 +56,7 @@
 			isa = PBXGroup;
 			children = (
 				016CFB471E40E7990074D109 /* AppDelegate.swift */,
-				016CFB451E40E7810074D109 /* ViewController.swift */,
+				01511F1F1E43978A002BF760 /* PostsTableViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -268,8 +268,8 @@
 				016CFB541E40EF3F0074D109 /* User.swift in Sources */,
 				01511F1E1E40F309002BF760 /* ContentParser.swift in Sources */,
 				016CFB4E1E40EF190074D109 /* ContentDispatcher.swift in Sources */,
-				016CFB461E40E7810074D109 /* ViewController.swift in Sources */,
 				016CFB501E40EF260074D109 /* Post.swift in Sources */,
+				01511F201E43978A002BF760 /* PostsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

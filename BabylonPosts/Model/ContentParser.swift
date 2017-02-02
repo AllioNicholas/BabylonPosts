@@ -9,15 +9,21 @@
 import UIKit
 
 struct ParsingConstants {
+    //Shared
+    static let Id = "id"
+    static let Body = "body"
+    static let Name = "name"
+    static let Email = "email"
+    
     //Post
-    static let id = "id"
-    static let userId = "userId"
-    static let title = "title"
-    static let body = "body"
+    static let UserId = "userId"
+    static let Title = "title"
     
     //Comment
+    static let PostId = "postId"
     
     //User
+    static let Username = "username"
 }
 
 class ContentParser: NSObject {
@@ -28,12 +34,13 @@ class ContentParser: NSObject {
             let parsedData = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [[String:AnyObject]]
             
             for post in parsedData {
-                let tempPost = Post()
-                tempPost.id = post[ParsingConstants.id] as! Int
-                tempPost.userId = post[ParsingConstants.userId] as! Int
-                tempPost.title = post[ParsingConstants.title] as? String
-                tempPost.body = post[ParsingConstants.body] as? String
+                var parsedPost: [String:AnyObject] = [:]
+                parsedPost[PostCostant.Id] = post[ParsingConstants.Id]
+                parsedPost[PostCostant.UserId] = post[ParsingConstants.UserId]
+                parsedPost[PostCostant.Title] = post[ParsingConstants.Title]
+                parsedPost[PostCostant.Body] = post[ParsingConstants.Body]
                 
+                let tempPost = Post(dict: parsedPost)
                 result.append(tempPost)
             }
             
@@ -49,9 +56,14 @@ class ContentParser: NSObject {
             let parsedData = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [[String:AnyObject]]
             
             for comment in parsedData {
-                let tempComment = Comment()
+                var parsedComment: [String:AnyObject] = [:]
+                parsedComment[CommentCostant.Id] = comment[ParsingConstants.Id]
+                parsedComment[CommentCostant.PostId] = comment[ParsingConstants.PostId]
+                parsedComment[CommentCostant.Name] = comment[ParsingConstants.Name]
+                parsedComment[CommentCostant.Email] = comment[ParsingConstants.Email]
+                parsedComment[CommentCostant.Body] = comment[ParsingConstants.Body]
                 
-                
+                let tempComment = Comment(dict: comment)
                 result.append(tempComment)
             }
             
@@ -67,8 +79,13 @@ class ContentParser: NSObject {
             let parsedData = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [[String:AnyObject]]
             
             for user in parsedData {
-                let tempUser = User()
+                var parsedUser: [String:AnyObject] = [:]
+                parsedUser[UserCostant.Id] = user[ParsingConstants.Id]
+                parsedUser[UserCostant.Name] = user[ParsingConstants.Name]
+                parsedUser[UserCostant.Username] = user[ParsingConstants.Username]
+                parsedUser[UserCostant.Email] = user[ParsingConstants.Email]
                 
+                let tempUser = User(dict: user)                
                 result.append(tempUser)
             }
             

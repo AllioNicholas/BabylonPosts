@@ -70,7 +70,7 @@ class ContentDispatcher: NSObject {
         }
     }
     
-    func getData(fromURL: URL, _ completion: @escaping (Data?)->()) {
+    fileprivate func getData(fromURL: URL, _ completion: @escaping (Data?)->()) {
         let request = URLRequest(url: fromURL)
         let task = session.dataTask(with: request) { (data, response, error) in
             guard (error == nil) else {
@@ -93,6 +93,5 @@ class ContentDispatcher: NSObject {
         
         task.resume()
     }
-    
 
 }
