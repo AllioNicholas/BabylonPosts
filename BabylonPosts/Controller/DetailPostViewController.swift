@@ -36,7 +36,18 @@ class DetailPostViewController: UIViewController {
 extension DetailPostViewController: UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        if let comments = self.post?.comments, comments.count > 0 {
+            self.tableView.backgroundView = nil
+            self.tableView.separatorStyle = .singleLine
+            return 1
+        } else {
+            let noDataLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.tableView.frame.width, height: self.tableView.frame.height))
+            noDataLabel.text = "No comments available"
+            noDataLabel.textAlignment = .center
+            self.tableView.backgroundView = noDataLabel
+            self.tableView.separatorStyle = .none
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

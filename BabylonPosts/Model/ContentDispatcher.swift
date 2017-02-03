@@ -7,17 +7,37 @@
 //
 
 import UIKit
-import FirebaseDatabase
 
 class ContentDispatcher: NSObject {
     
     fileprivate let session = URLSession.shared
     fileprivate let parser = ContentParser()
+    fileprivate let firebaseDispatcher = FirebaseDispatcher()
     
     fileprivate let baseURLString = "http://jsonplaceholder.typicode.com/"
     fileprivate let postsSuffix = "posts"
     fileprivate let commentsSuffix = "comments"
     fileprivate let usersSuffix = "users"
+    
+    func getOfflinePosts(_ completion: @escaping ([Int:Post]?)->()) {
+        firebaseDispatcher.getOfflinePosts { (posts) in
+            if let posts = posts {
+                completion(posts)
+            } else {
+                completion(nil)
+            }
+        }
+    }
+    
+    func getOfflineUsers(_ completion: @escaping ([Int:User]?)->()) {
+        firebaseDispatcher.getOfflineUsers { (users) in
+            if let users = users {
+                completion(users)
+            } else {
+                completion(nil)
+            }
+        }
+    }
     
     func getPosts(_ completionHandler: @escaping ([Int:Post]?)->()) {
         let callURLString = baseURLString + postsSuffix
