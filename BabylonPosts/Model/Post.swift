@@ -21,12 +21,25 @@ class Post: NSObject {
     var title: String?
     var body: String?
     
-    init(dict: [String:AnyObject]) {
+    var comments: [Comment]?
+    
+    init(dict: [String:Any]) {
         super.init()
         self.id = dict[PostCostant.Id] as! Int
         self.userId = dict[PostCostant.UserId] as! Int
         self.title = dict[PostCostant.Title] as? String
         self.body = dict[PostCostant.Body] as? String
+        self.comments = []
     }
 
+}
+
+extension Post {
+    func toFirebaseObject() -> [String:Any] {
+        return [PostCostant.Id: self.id,
+                PostCostant.UserId: self.userId,
+                PostCostant.Title: self.title ?? "",
+                PostCostant.Body: self.body ?? ""
+        ]
+    }
 }

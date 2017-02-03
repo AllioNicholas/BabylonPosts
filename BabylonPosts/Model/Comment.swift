@@ -23,7 +23,7 @@ class Comment: NSObject {
     var email: String?
     var body: String?
     
-    init(dict: [String: AnyObject]) {
+    init(dict: [String: Any]) {
         super.init()
         self.id = dict[CommentCostant.Id] as! Int
         self.postId = dict[CommentCostant.PostId] as! Int
@@ -32,4 +32,15 @@ class Comment: NSObject {
         self.body = dict[CommentCostant.Body] as? String
     }
 
+}
+
+extension Comment {
+    func toFirebaseObject() -> [String:Any] {
+        return [CommentCostant.Id: self.id,
+                CommentCostant.PostId: self.postId,
+                CommentCostant.Name: self.name ?? "",
+                CommentCostant.Email: self.email ?? "",
+                CommentCostant.Body: self.body ?? ""
+        ]
+    }
 }

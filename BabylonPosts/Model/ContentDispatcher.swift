@@ -19,13 +19,13 @@ class ContentDispatcher: NSObject {
     fileprivate let commentsSuffix = "comments"
     fileprivate let usersSuffix = "users"
     
-    func getPosts(_ completionHandler: @escaping ([Post]?)->()) {
+    func getPosts(_ completionHandler: @escaping ([Int:Post]?)->()) {
         let callURLString = baseURLString + postsSuffix
         let callURL = URL(string: callURLString)
         
         if let url = callURL {
             getData(fromURL: url, { (data) in
-                if let dataToParse = data, let posts = self.parser.parsedPosts(data: dataToParse) {
+                if let dataToParse = data, let posts = self.parser.parsedPostsAsDictionary(data: dataToParse) {
                     completionHandler(posts)
                 } else {
                     completionHandler(nil)
@@ -36,13 +36,13 @@ class ContentDispatcher: NSObject {
         }
     }
     
-    func getComments(_ completionHandler: @escaping ([Comment]?)->()) {
+    func getComments(_ completionHandler: @escaping ([Int:Comment]?)->()) {
         let callURLString = baseURLString + commentsSuffix
         let callURL = URL(string: callURLString)
         
         if let url = callURL {
             getData(fromURL: url, { (data) in
-                if let dataToParse = data, let comments = self.parser.parsedComments(data: dataToParse) {
+                if let dataToParse = data, let comments = self.parser.parsedCommentsAsDictionary(data: dataToParse) {
                     completionHandler(comments)
                 } else {
                     completionHandler(nil)
@@ -53,13 +53,13 @@ class ContentDispatcher: NSObject {
         }
     }
     
-    func getUsers(_ completionHandler: @escaping ([User]?)->()) {
+    func getUsers(_ completionHandler: @escaping ([Int:User]?)->()) {
         let callURLString = baseURLString + usersSuffix
         let callURL = URL(string: callURLString)
         
         if let url = callURL {
             getData(fromURL: url, { (data) in
-                if let dataToParse = data, let users = self.parser.parsedUsers(data: dataToParse) {
+                if let dataToParse = data, let users = self.parser.parsedUsersAsDictionary(data: dataToParse) {
                     completionHandler(users)
                 } else {
                     completionHandler(nil)

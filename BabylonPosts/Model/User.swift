@@ -20,8 +20,8 @@ class User: NSObject {
     var name: String?
     var username: String?
     var email: String?
-    
-    init(dict: [String:AnyObject]) {
+        
+    init(dict: [String:Any]) {
         super.init()
         self.id = dict[UserCostant.Id] as! Int
         self.name = dict[UserCostant.Name] as? String
@@ -29,4 +29,14 @@ class User: NSObject {
         self.email = dict[UserCostant.Email] as? String
     }
 
+}
+
+extension User {
+    func toFirebaseObject() -> [String:Any] {
+        return [UserCostant.Id: self.id,
+                UserCostant.Name: self.name ?? "",
+                UserCostant.Username: self.username ?? "",
+                UserCostant.Email: self.email ?? ""
+        ]
+    }
 }

@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		014086B51E449916007E77E6 /* DetailPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014086B41E449916007E77E6 /* DetailPostViewController.swift */; };
+		014086B71E449E2E007E77E6 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014086B61E449E2E007E77E6 /* CommentTableViewCell.swift */; };
 		01511F1E1E40F309002BF760 /* ContentParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01511F1D1E40F309002BF760 /* ContentParser.swift */; };
 		01511F201E43978A002BF760 /* PostsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01511F1F1E43978A002BF760 /* PostsTableViewController.swift */; };
+		01511F221E448016002BF760 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01511F211E448016002BF760 /* PostTableViewCell.swift */; };
 		016CFB431E40E7720074D109 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 016CFB411E40E7720074D109 /* GoogleService-Info.plist */; };
 		016CFB481E40E7990074D109 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016CFB471E40E7990074D109 /* AppDelegate.swift */; };
 		016CFB4E1E40EF190074D109 /* ContentDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016CFB4D1E40EF190074D109 /* ContentDispatcher.swift */; };
@@ -22,8 +25,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		014086B41E449916007E77E6 /* DetailPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailPostViewController.swift; path = Controller/DetailPostViewController.swift; sourceTree = "<group>"; };
+		014086B61E449E2E007E77E6 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommentTableViewCell.swift; path = View/CommentTableViewCell.swift; sourceTree = "<group>"; };
 		01511F1D1E40F309002BF760 /* ContentParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContentParser.swift; path = Model/ContentParser.swift; sourceTree = "<group>"; };
 		01511F1F1E43978A002BF760 /* PostsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostsTableViewController.swift; path = Controller/PostsTableViewController.swift; sourceTree = "<group>"; };
+		01511F211E448016002BF760 /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostTableViewCell.swift; path = View/PostTableViewCell.swift; sourceTree = "<group>"; };
 		016CFB411E40E7720074D109 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Resources/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		016CFB471E40E7990074D109 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Controller/AppDelegate.swift; sourceTree = "<group>"; };
 		016CFB491E40ED450074D109 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -57,6 +63,7 @@
 			children = (
 				016CFB471E40E7990074D109 /* AppDelegate.swift */,
 				01511F1F1E43978A002BF760 /* PostsTableViewController.swift */,
+				014086B41E449916007E77E6 /* DetailPostViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -84,6 +91,8 @@
 		016CFB3C1E40E51B0074D109 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				01511F211E448016002BF760 /* PostTableViewCell.swift */,
+				014086B61E449E2E007E77E6 /* CommentTableViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -266,8 +275,11 @@
 				016CFB521E40EF360074D109 /* Comment.swift in Sources */,
 				016CFB481E40E7990074D109 /* AppDelegate.swift in Sources */,
 				016CFB541E40EF3F0074D109 /* User.swift in Sources */,
+				01511F221E448016002BF760 /* PostTableViewCell.swift in Sources */,
 				01511F1E1E40F309002BF760 /* ContentParser.swift in Sources */,
+				014086B51E449916007E77E6 /* DetailPostViewController.swift in Sources */,
 				016CFB4E1E40EF190074D109 /* ContentDispatcher.swift in Sources */,
+				014086B71E449E2E007E77E6 /* CommentTableViewCell.swift in Sources */,
 				016CFB501E40EF260074D109 /* Post.swift in Sources */,
 				01511F201E43978A002BF760 /* PostsTableViewController.swift in Sources */,
 			);
