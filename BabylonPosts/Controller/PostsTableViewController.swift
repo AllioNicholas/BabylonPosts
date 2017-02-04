@@ -10,20 +10,20 @@ import UIKit
 
 class PostsTableViewController: UITableViewController {
     
-    let contentDispatcher = ContentDispatcher()
+    var contentDispatcher: ContentDispatcher! = nil
     var postsDict: [Int:Post] = [:]
     var userDict: [Int:User] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.contentDispatcher = ContentDispatcher()
+        
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         
         self.tableView.refreshControl = UIRefreshControl()
         self.tableView.refreshControl?.attributedTitle = NSAttributedString(string: "")
         self.tableView.refreshControl?.addTarget(self, action: #selector(loadPosts), for: .valueChanged)
-        //Allow post selection only when user data are available
-        self.tableView.allowsSelection = false
         
         //Display possible offline content first
         downloadOffline()
@@ -37,18 +37,21 @@ class PostsTableViewController: UITableViewController {
         contentDispatcher.getPosts { (postDict) in
             if let postDict = postDict {
                 self.postsDict = postDict
+                self.contentDispatcher.sendOffline(posts: self.postsDict)
                 
                 self.contentDispatcher.getComments({ (commentsDict) in
                     if let comments = commentsDict {
                         for (id, comment) in comments {
                             self.postsDict[id]?.comments?.append(comment)
                         }
+                        self.contentDispatcher.sendOffline(comments: comments)
                     }
                 })
                 
                 self.contentDispatcher.getUsers({ (usersDict) in
                     if let users = usersDict {
                         self.userDict = users
+                        self.contentDispatcher.sendOffline(users: self.userDict)
                     }
                 })
                 
@@ -56,7 +59,6 @@ class PostsTableViewController: UITableViewController {
                     UIApplication.shared.isNetworkActivityIndicatorVisible = false
                     self.tableView.refreshControl?.endRefreshing()
                     self.tableView.reloadData()
-                    self.tableView.allowsSelection = true
                 }
             } else {
                 let alert = UIAlertController(title: "Error", message: "An error occurred while downloading posts", preferredStyle: .alert)
@@ -74,14 +76,22 @@ class PostsTableViewController: UITableViewController {
             if let posts = posts {
                 self.postsDict = posts
                 
+                self.contentDispatcher.getOfflineComments({ (comments) in
+                    if let comments = comments {
+                        for (id, comment) in comments {
+                            self.postsDict[id]?.comments?.append(comment)
+                        }
+                    }
+                })
+                
                 self.contentDispatcher.getOfflineUsers { (users) in
                     if let users = users {
                         self.userDict = users
-                        DispatchQueue.main.async {
-                            self.tableView.reloadData()
-                            self.tableView.allowsSelection = true
-                        }
                     }
+                }
+                
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
                 }
             }
         }

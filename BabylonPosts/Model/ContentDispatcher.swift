@@ -19,10 +19,22 @@ class ContentDispatcher: NSObject {
     fileprivate let commentsSuffix = "comments"
     fileprivate let usersSuffix = "users"
     
+    // MARK: - Offline data
+    
     func getOfflinePosts(_ completion: @escaping ([Int:Post]?)->()) {
         firebaseDispatcher.getOfflinePosts { (posts) in
             if let posts = posts {
                 completion(posts)
+            } else {
+                completion(nil)
+            }
+        }
+    }
+    
+    func getOfflineComments(_ completion: @escaping ([Int:Comment]?)->()) {
+        firebaseDispatcher.getOfflineComments { (comments) in
+            if let comments = comments {
+                completion(comments)
             } else {
                 completion(nil)
             }
@@ -38,6 +50,20 @@ class ContentDispatcher: NSObject {
             }
         }
     }
+    
+    func sendOffline(posts: [Int:Post]) {
+        firebaseDispatcher.sendPostsOffline(posts: posts)
+    }
+    
+    func sendOffline(comments: [Int:Comment]) {
+        firebaseDispatcher.sendCommentsOffline(comments: comments)
+    }
+    
+    func sendOffline(users: [Int:User]) {
+        firebaseDispatcher.sendUsersOffline(users: users)
+    }
+    
+    // MARK: - Online data
     
     func getPosts(_ completionHandler: @escaping ([Int:Post]?)->()) {
         let callURLString = baseURLString + postsSuffix

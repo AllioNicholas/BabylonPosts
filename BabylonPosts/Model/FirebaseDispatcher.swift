@@ -10,10 +10,18 @@ import UIKit
 import FirebaseDatabase
 
 class FirebaseDispatcher: NSObject {
-    fileprivate let firebasePostRef = FIRDatabase.database().reference(withPath: "posts")
-    fileprivate let firebaseUserRef = FIRDatabase.database().reference(withPath: "users")
+    fileprivate var firebasePostRef: FIRDatabaseReference!
+    fileprivate var firebaseCommentRef: FIRDatabaseReference!
+    fileprivate var firebaseUserRef: FIRDatabaseReference!
     
     fileprivate let contentParser = ContentParser()
+    
+    override init() {
+        super.init()
+        firebasePostRef = FIRDatabase.database().reference(withPath: "posts")
+        firebaseCommentRef = FIRDatabase.database().reference(withPath: "comments")
+        firebaseUserRef = FIRDatabase.database().reference(withPath: "users")
+    }
     
     func getOfflinePosts(_ completion: @escaping ([Int:Post]?)->()) {
         self.firebasePostRef.observeSingleEvent(of: .value, with: { (snapshot) in
@@ -21,6 +29,19 @@ class FirebaseDispatcher: NSObject {
             let offlineRes = self.contentParser.parsedPostsAsDictionary(arrOfDict: snapshotValue)
             
             if offlineRes.count > 0 {
+                completion(offlineRes)
+            } else {
+                completion(nil)
+            }
+        })
+    }
+    
+    func getOfflineComments(_ completion: @escaping ([Int:Comment]?)->()) {
+        self.firebaseCommentRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            let snapshotValue = snapshot.value as! [[String:Any]]
+            let offlineRes = self.contentParser.parsedCommentsAsDictionary(arrOfDict: snapshotValue)
+            
+            if offlineRes.count > 0{
                 completion(offlineRes)
             } else {
                 completion(nil)
@@ -42,11 +63,33 @@ class FirebaseDispatcher: NSObject {
     }
     
     func sendPostsOffline(posts: [Int:Post]) {
-        
+        DispatchQueue.global(qos: .background).async {
+            var postsObject: [[String:Any]] = []
+            for (_, post) in posts {
+                postsObject.append(post.toFirebaseObject())
+            }
+            self.firebasePostRef.setValue(postsObject)
+        }
     }
     
-    func sendUsersOffline(posts: [Int:User]) {
-        
+    func sendCommentsOffline(comments: [Int:Comment]) {
+        DispatchQueue.global(qos: .background).async {
+            var commentsObject: [[String:Any]] = []
+            for (_, comment) in comments {
+                commentsObject.append(comment.toFirebaseObject())
+            }
+            self.firebaseCommentRef.setValue(commentsObject)
+        }
+    }
+    
+    func sendUsersOffline(users: [Int:User]) {
+        DispatchQueue.global(qos: .background).async {
+            var usersObject: [[String:Any]] = []
+            for (_, user) in users {
+                usersObject.append(user.toFirebaseObject())
+            }
+            self.firebaseUserRef.setValue(usersObject)
+        }
     }
 
 }
