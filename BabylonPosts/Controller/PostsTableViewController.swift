@@ -93,6 +93,13 @@ class PostsTableViewController: UITableViewController {
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
+            } else {
+                let alert = UIAlertController(title: "Error", message: "An error occurred while downloading posts", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { (action) in
+                    self.tableView.refreshControl?.endRefreshing()
+                }))
+                self.present(alert, animated: true, completion: nil)
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
             }
         }
     }
