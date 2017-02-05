@@ -25,10 +25,6 @@ class PostsTableViewController: UITableViewController {
         self.tableView.refreshControl?.attributedTitle = NSAttributedString(string: "")
         self.tableView.refreshControl?.addTarget(self, action: #selector(loadPosts), for: .valueChanged)
         
-        //Display possible offline content first
-        downloadOffline()
-        
-        //Downolad new data anyway in order to handle new entries or updates
         loadPosts()
 
     }
@@ -61,11 +57,7 @@ class PostsTableViewController: UITableViewController {
                     self.tableView.reloadData()
                 }
             } else {
-                let alert = UIAlertController(title: "Error", message: "An error occurred while downloading posts", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { (action) in
-                    self.tableView.refreshControl?.endRefreshing()
-                }))
-                self.present(alert, animated: true, completion: nil)
+                self.downloadOffline()
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
             }
         }
@@ -99,7 +91,6 @@ class PostsTableViewController: UITableViewController {
                     self.tableView.refreshControl?.endRefreshing()
                 }))
                 self.present(alert, animated: true, completion: nil)
-                UIApplication.shared.isNetworkActivityIndicatorVisible = false
             }
         }
     }
